@@ -62,7 +62,9 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                     using a class roster and the zoom usage report.
                     In order to use this app, you will need to prepare two files:
                    <br> <b> (1) class roster</b>, a .csv file that contains students' names in the first column, called Name. The format of names should be <b>Last Name, First Name</b>. 
+                   <br> A csv template for a class roster can be found: <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/roster.csv\' target=\'_blank\'>here</a>.
                    <br> <b> (2) zoom usage report</b>, a .csv file downloaded from zoom.us.
+                   <br> A csv template for a zoom usage report can be found: <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/zoom.csv\' target=\'_blank\'>here</a>.</p>
                    </p></font>
                    
                    
@@ -72,7 +74,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                    correct results (and no errors). We highly advise the reader to view the video prior to his/her's 
                    first use; the video is short and will reduce the start-up time for new users. <br> </p>
                    
-                   <button class=\"button\" onClick=\"window.open('https://www.youtube.com/watch?v=az-xV35sZuY');\">
+                   <button class=\"button\" onClick=\"window.open('https://youtu.be/_QDkT5-dyUc');\">
                    <h4> <b> Click here for instrucational video!! </b>  </h4> </button>
                    
                    <p> <br> </p> </font>
@@ -88,7 +90,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                         column(4, panel_div(class_type = "danger", 
                                             panel_title = "Application Maintainers",
                                             content = HTML("<font size='3'>The maintainer can be contacted via email at: 
-                                         <br> <a href='mailto:ychen4@udayton.edu?Subject=Smart%20Attendance%20App%20Help' target='_top'>Tessa Chen</a>.</font>"))),
+                                            <a href='mailto:ychen4@udayton.edu?Subject=Smart%20Attendance%20App%20Help' target='_top'>Tessa Chen</a>.</font>"))),
                         column(4, panel_div(class_type = "danger", 
                                             panel_title = "Copyrights", 
                                             content = HTML("<p> <img height = \" 28\", src=\" http://i.creativecommons.org/p/zero/1.0/88x31.png\"> </img>
@@ -130,7 +132,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                             sidebarPanel(width = 12, id="sidebar_csv",
                                          HTML("<p.h> <b> <font size=\"5px\">  Upload the student roster CSV file </font> </b> </p>"),
                                          fileInput("roster_file", NULL, accept=c('text/csv', '.csv')),
-                                         HTML("<p.h> <b> <font size=\"5px\">  Upload zoom usage report CSV file </font> </b> </p>"),
+                                         HTML("<p.h> <b> <font size=\"5px\">  Upload the zoom usage report CSV file </font> </b> </p>"),
                                          fileInput("zoom_file", NULL, accept=c('text/csv', '.csv')),
                                          HTML("<p.h> <b> <font size=\"5px\">  Input your class time (minutes) </font> </b> </p>"),
                                          numericInput("class_time", NULL, 50)
@@ -173,17 +175,19 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                     
             ),# For automated Tab Items
             
-            
             # About Us Page
             tabItem(tabName = "about",
                     HTML("<h2> <b>Author of the App</b></h2> <br>"), 
                     
                     HTML("<font size='4'><div style=\"clear: left;\">
-                   <p style=\"float: left;\"><img src=\"https://static.wixstatic.com/media/0f788f_1207b6b596cb430593bd55a2114aa6f1~mv2.jpg/v1/fill/w_297,h_297/b7Q9rDyU_400x400.jpg\" height=\"120\" width=\"120\" border=\"0px\" hspace=\"20\"></p>
+                   <p style=\"float: left;\"><img src=\"https://static.wixstatic.com/media/0f788f_1207b6b596cb430593bd55a2114aa6f1~mv2.jpg/v1/fill/w_297,h_297/b7Q9rDyU_400x400.jpg\" height=\"150\" width=\"150\" border=\"0px\" hspace=\"20\"></p>
                    <p class = \"app\"> Dr. Ying-Ju (Tessa) Chen is an Assistant Professor in the Department of Mathematics at the University of Dayton. 
                    Her expertise is in applied machine learning, high performance computing, statistical modeling, and
                    survival analysis. Her work has been funded by several foundations
-                   and government agencies. <br>
+                   and government agencies. 
+                   <br> The source code used to create this app can be found <a href=\"https://github.com/Ying-Ju/Smart-Attendance-Checking\" target=\"_blank\">here</a>.
+                   <br>
+                   <br>
                    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
                    <a href=\"https://scholar.google.com/citations?user=nfXnYKcAAAAJ&hl=en&oi=sra/\" class=\"fa fa-google\" target=\"_blank\"></a>
                    <a href=\"https://github.com/Ying-Ju/\" class=\"fa fa-github\" targe=\"_blank\"></a>
