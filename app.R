@@ -44,7 +44,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                      sidebarMenu(
                          menuItem(HTML("<font size = \"5px\">  Home Page </font>"), tabName = "home", icon = icon("home")),
                          menuItem(HTML("<font size = \"5px\">  Check Attendance </font>"), tabName = "automated", icon = icon("check-circle")),
-                         menuItem(HTML("<font size = \"5px\">  About Me </font>"), tabName = "about", icon = icon("users"))
+                         menuItem(HTML("<font size = \"5px\">  About the Author </font>"), tabName = "about", icon = icon("users"))
                      )
     ),
     
@@ -58,13 +58,10 @@ ui <- dashboardPage( # Function from Shiny Dashboard
             # Home Page Contents Using the ShinyLP Boostrapping Functionality
             tabItem(tabName = "home",
                     HTML("<h2> <b>Overview </b></h2>"), 
-                    HTML("<font size='3'><p class = \"app\">  This web app provides a smart way to check the student attedance
-                    using a class roster and the zoom usage report.
-                    In order to use this app, you will need to prepare two files:
-                   <br> <b> (1) class roster</b>, a .csv file that contains students' names in the first column, called Name. The format of names should be <b>Last Name, First Name</b>. 
-                   <br> A csv template for a class roster can be found: <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/roster.csv\' target=\'_blank\'>here</a>.
-                   <br> <b> (2) zoom usage report</b>, a .csv file downloaded from zoom.us.
-                   <br> A csv template for a zoom usage report can be found: <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/zoom.csv\' target=\'_blank\'>here</a>.</p>
+                    HTML("<font size='3'><p class = \"app\">  The Smart Attendance web app provides a way to check student attendance using a class roster and the zoom usage report. 
+                    To use this app, you will need two files:
+                   <br> <b> (1) class roster</b>, a .csv file that contains students' names in the first column, called Name. The format of names should be <b>Last Name, First Name</b>. A csv template for a class roster can be found <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/roster.csv\' target=\'_blank\'>here</a>.
+                   <br> <b> (2) zoom usage report</b>, a .csv file downloaded from zoom.us. A csv template for a zoom usage report can be found <a href=\'https://github.com/Ying-Ju/Smart-Attendance-Checking/blob/master/zoom.csv\' target=\'_blank\'>here</a>.</p>
                    </p></font>
                    
                    
@@ -74,7 +71,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                    correct results (and no errors). We highly advise the reader to view the video prior to his/her's 
                    first use; the video is short and will reduce the start-up time for new users. <br> </p>
                    
-                   <button class=\"button\" onClick=\"window.open('https://youtu.be/_QDkT5-dyUc');\">
+                   <button class=\"button\" onClick=\"window.open('https://youtu.be/JBhssf_kO0Q');\">
                    <h4> <b> Click here for instrucational video!! </b>  </h4> </button>
                    
                    <p> <br> </p> </font>
@@ -103,7 +100,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                         
                     ),
                     HTML("<h2> <b>Disclaimers: </b></h2>"), 
-                    HTML("<font size='3'><p class = \"app\"> <ul>
+                    HTML("<font size='1'><p class = \"app\"> <ul>
                    <li> <p class = \"app\"> This web app is free software and comes with ABSOLUTELY NO WARRANTY.
                    You are welcome to redistribute it, given that this app comes with a CCO license. </p></li>
                    <li> <p class = \"app\">This version is a Beta Version. As of this moment, we have not included any Error Checks to the app. As 
