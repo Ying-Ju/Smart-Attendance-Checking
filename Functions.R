@@ -16,6 +16,13 @@ smart_checking <- function(df1, df2, classtime){
   }
   
   if ((is_error1=="NO")&(is_error2=="NO")){
+    Name_line <- which(df1[,1]=="Name")
+    
+    if (length(Name_line)==1){
+      colnames(df1) <- df1[Name_line, ]
+      df1 <- df1[-c(1:Name_line),]
+    }
+
     df1 <- na.omit(df1)
     
     allnames <- strsplit(df1$Name, ", " )
@@ -47,7 +54,7 @@ smart_checking <- function(df1, df2, classtime){
     colnames(outcomes$leave_early) <- c("Name", "Time_Stay")
     
     outcomes$Cannot_find_their_names <- setdiff(df3$Name, df1$whole_name)
-    outcomes$message <- paste("Names cannot found in the student roster: \n", paste(outcomes$Cannot_find_their_names, sep="", collapse = ", "))
+    outcomes$message <- paste("Names cannot be found in the student roster: \n", paste(outcomes$Cannot_find_their_names, sep="", collapse = ", "))
     outcomes$file <- data.frame(Name=df1$Name)
     outcomes$file$Present <- ifelse(check_in==TRUE, 1, 0)
     return(outcomes)

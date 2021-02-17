@@ -14,6 +14,7 @@ library(shiny)
 library(htmltools)
 library(dplyr)
 library(stringr)
+library(tidyverse)
 options(dplyr.summarise.inform = FALSE)
 
 library(shinyLP)
@@ -81,7 +82,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                         column(4, panel_div(class_type = "danger", 
                                             panel_title = "App Status", 
                                             content = HTML("<font size='3'><b> Version: </b> 0.1.0.
-                                                   <br> <b> Last Updated at </b> February 8, 2021
+                                                   <br> <b> Last Updated at </b> February 7, 2021
                                                    <b> by </b> Tessa Chen.
                                                    <br> <b> Status: </b> No reported outages.</font>"))),
                         column(4, panel_div(class_type = "danger", 
@@ -114,12 +115,13 @@ ui <- dashboardPage( # Function from Shiny Dashboard
             
             tabItem(tabName = "automated",
                     HTML("<h1> <b>Instructions for Checking Attendance: </b></h1>"), 
-                    HTML("<font size='4'><p class = \"app\">The app will generates the following outputs:
+                    HTML("<font size='3'><p class = \"app\">The app will generates the following outputs:
                          <br> (1) Names in the usage report cannot be found in the student roster if any
                          <br> (2) Students who presented in class less than the entire class time if any
-                         <br> (3) A download link where you can download the final attendance file
+                         <br> (3) A <b>download link</b> where you can download the final <b>attendance</b> file
                          <br>
-                         <br>
+                         <br>If there are multiple zoom usage files for the same class roster, the system will update the attendance file whenever the zoom usage file is updated.
+                         <br><h4><p style='color:#cc0000'>Please check formats in both CSV files if the server is disconnected after uploading files or contact the author for technical assistance.</p></h4>
                          </p>
                          </font>"),
                     
@@ -154,17 +156,17 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                         condition = "output.button",
                         textOutput("error_no1"),
                         textOutput("error_no2"),
-                        span(textOutput("message"), style="color:black; font-size:10mm"),
+                        span(textOutput("message"), style="color:black; font-size:8mm"),
                         br()
                     ),
                     conditionalPanel(
                         condition = "output.button",
                         HTML("<h1> <b>The following table shows the students whose total participating time is less than the class time. </b></h1>"), 
-                        span(tableOutput("leave_early"), style="color:black; font-size:10mm")
+                        span(tableOutput("leave_early"), style="color:black; font-size:8mm")
                     ),
                     conditionalPanel(
                         condition = "output.button",
-                        #span(tableOutput("file"), style="color:black; font-size:10mm")
+                        #span(tableOutput("file"), style="color:black; font-size:8mm")
                         span(downloadLink("download", "Download the Attendance Sheet Here"), style="font-size:12mm")
                         #downloadButton('download',"Download the Attendance File"),
                         #fluidRow(column(2,dataTableOutput('download')))
@@ -182,7 +184,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                    Her expertise is in applied machine learning, high performance computing, statistical modeling, and
                    survival analysis. Her work has been funded by several foundations
                    and government agencies. 
-                   <br> The source code used to create this app can be found <a href=\"https://github.com/Ying-Ju/Smart-Attendance-Checking\" target=\"_blank\">here</a>.
+                   <br>The source code used to create this app can be found <a href=\"https://github.com/Ying-Ju/Smart-Attendance-Checking\" target=\"_blank\">here</a>.
                    <br>
                    <br>
                    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
@@ -219,8 +221,8 @@ server <- function(input, output, session) {
         file2 <- input$zoom_file
         
         if ((!is.null(file1))&(!is.null(file2))){
-            parameters$data_base1 <- read.csv(file=file1$datapath, sep=',', header = TRUE, stringsAsFactors = FALSE)
-            parameters$data_base2 <- read.csv(file=file2$datapath, sep=',', header = TRUE, stringsAsFactors = FALSE)
+            parameters$data_base1 <- read_csv(file1$datapath)
+            parameters$data_base2 <- read_csv(file2$datapath)
         }
         
         parameters$class_time <- input$class_time
