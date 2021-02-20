@@ -45,6 +45,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                      sidebarMenu(
                          menuItem(HTML("<font size = \"5px\">  Home Page </font>"), tabName = "home", icon = icon("home")),
                          menuItem(HTML("<font size = \"5px\">  Check Attendance </font>"), tabName = "automated", icon = icon("check-circle")),
+                         menuItem(HTML("<font size = \"5px\">  Tech Help Q&A </font>"), tabName = "tech", icon = icon("wrench")),
                          menuItem(HTML("<font size = \"5px\">  About the Author </font>"), tabName = "about", icon = icon("users"))
                      )
     ),
@@ -73,7 +74,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                    first use; the video is short and will reduce the start-up time for new users. <br> </p>
                    
                    <button class=\"button\" onClick=\"window.open('https://youtu.be/JBhssf_kO0Q');\">
-                   <h4> <b> Click here for instrucational video!! </b>  </h4> </button>
+                   <h4> <b> Click here for instructional video!! </b>  </h4> </button>
                    
                    <p> <br> </p> </font>
                    "),
@@ -82,7 +83,7 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                         column(4, panel_div(class_type = "danger", 
                                             panel_title = "App Status", 
                                             content = HTML("<font size='3'><b> Version: </b> 0.1.0.
-                                                   <br> <b> Last Updated at </b> February 7, 2021
+                                                   <br> <b> Last Updated at </b> February 20, 2021
                                                    <b> by </b> Tessa Chen.
                                                    <br> <b> Status: </b> No reported outages.</font>"))),
                         column(4, panel_div(class_type = "danger", 
@@ -173,7 +174,30 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                     )
                     
             ),# For automated Tab Items
-            
+            tabItem(tabName = "tech",
+                    HTML("<h2> <b>Tech Help (Q&A)</b></h2>"),
+                    HTML("<font size='3'><p class = \"app\">
+                    <br> (1) Is the app case-sensitive in the name?
+                    <br> <b> Answer: </b> No, the app is NOT case-sensitive in the name. If the app cannot find a student's name when it should be there, check the spelling of the student's name in the zoom usage report. 
+                    <br>
+                    <br> (2) How to handle with the students who use a nickname on Zoom are missed on the attendance sheet?
+                    <br> <b> Answer: </b> We can fix their names in the roster and the format of their names must be <b>Last name, First name</b>. 
+                    <br>
+                    <br>
+                    </p>
+                    </font>
+                   "),
+                    HTML("<h2> <b>Useful Tips</b></h2>"),
+                    HTML("<font size='3'><p class = \"app\">
+                    <br> (1) How to hande with this: all the files have the same file name coming from Zoom?
+                    <br> <b> Answer: </b> When you download one report from zoom, you may want to change the file name immediately based on the course id, section number, and the date. For example, MTH207_01_021821 means Section 01 of MTH 207 on Feb 18 2021.
+                    <br>
+                    <br> (2) How to  compile all the separate reports into a single spreadsheet?
+                    <br> <b> Answer: </b> When you have multiple attendance reports downloaded from the app, open the roster and then copy the 'Present' column from each 'attendance' report and paste it to the roster.  Make sure they are pasted in a right time order.  Then change the title of the column accordingly.  The app only takes the first column 'Name' in the roster.  It doesn't use other columns.  Or you can save the roster file as another spreadsheet if you have some concerns about this. 
+                    </p>
+                    </font>
+                   ")
+                    ), # for tech Tab Items
             # About Us Page
             tabItem(tabName = "about",
                     HTML("<h2> <b>Author of the App</b></h2> <br>"), 

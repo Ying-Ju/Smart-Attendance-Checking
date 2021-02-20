@@ -37,7 +37,7 @@ smart_checking <- function(df1, df2, classtime){
     
     colnames(df2) <- c("Name", "Email", "Join", "Leave", "Duration", "Guest")
     df2$Name <- toupper(df2$Name)
-    
+    df2$Name <- gsub("\\s+", " ", df2$Name)
     # group data by user names, so we can tally the total time a participant stayed in class
     # this is because a person may join zoom multiple times due to internet issues
     df3 <- df2 %>% group_by(Name) %>% summarise(total_time = sum(Duration))
