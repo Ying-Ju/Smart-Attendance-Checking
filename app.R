@@ -183,17 +183,11 @@ ui <- dashboardPage( # Function from Shiny Dashboard
                     <br> (2) How to handle with the students who use a nickname on Zoom are missed on the attendance sheet?
                     <br> <b> Answer: </b> We can fix their names in the roster and the format of their names must be <b>Last name, First name</b>. 
                     <br>
-                    <br>
-                    </p>
-                    </font>
-                   "),
-                    HTML("<h2> <b>Useful Tips</b></h2>"),
-                    HTML("<font size='3'><p class = \"app\">
-                    <br> (1) How to hande with this: all the files have the same file name coming from Zoom?
+                    <br> (3) How to handle with this situation: all the files have the same file name coming from Zoom?
                     <br> <b> Answer: </b> When you download one report from zoom, you may want to change the file name immediately based on the course id, section number, and the date. For example, MTH207_01_021821 means Section 01 of MTH 207 on Feb 18 2021.
                     <br>
-                    <br> (2) How to  compile all the separate reports into a single spreadsheet?
-                    <br> <b> Answer: </b> When you have multiple attendance reports downloaded from the app, open the roster and then copy the 'Present' column from each 'attendance' report and paste it to the roster.  Make sure they are pasted in a right time order.  Then change the title of the column accordingly.  The app only takes the first column 'Name' in the roster.  It doesn't use other columns.  Or you can save the roster file as another spreadsheet if you have some concerns about this. 
+                    <br> (4) How to compile all the separate reports into a single spreadsheet?
+                    <br> <b> Answer: </b> When you have multiple attendance reports downloaded from the app, open the roster and then copy the 'Present' column from each 'attendance' report and paste it to the roster.  Make sure they are pasted in chronological order.  Then change the title of the column accordingly.  The app only takes the first column 'Name' in the roster.  It doesn't use other columns.  Or you can save the roster file as another spreadsheet if you have some concerns about this. 
                     </p>
                     </font>
                    ")
